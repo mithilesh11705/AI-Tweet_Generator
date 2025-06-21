@@ -1,37 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# AI Tweet Generator
+
+This is a web application that uses AI to generate viral tweets on any topic. You can customize the tone, length, and even add emojis and hashtags to create the perfect tweet.
+
+## Features
+
+- **Topic-based Generation:** Generate tweets on any subject you can think of.
+- **Mood & Tone Control:** Specify the mood and tone to match your desired style (e.g., casual, professional, humorous).
+- **Customization:** Add hashtags and emojis to make your tweets stand out.
+- **Variable Length:** Choose between short, medium, or long tweets.
+- **Multiple Generations:** Generate multiple tweet variations at once.
+
+## Tech Stack
+
+- **Framework:** [Next.js](https://nextjs.org/)
+- **UI:** [React](https://reactjs.org/) & [Tailwind CSS](https://tailwindcss.com/)
+- **AI Model:** [OpenRouter](https://openrouter.ai/) with Google's `DeepSeek(R1)`
 
 ## Getting Started
 
-First, run the development server:
+Follow these instructions to get the project up and running on your local machine.
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/en/) (v18 or later recommended)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+
+### Installation
+
+1.  **Clone the repository:**
+
+    ```bash
+    git clone <your-repository-url>
+    cd ai-tweet-generator
+    ```
+
+2.  **Install dependencies:**
+
+    ```bash
+    npm install
+    ```
+
+3.  **Set up environment variables:**
+    Create a `.env.local` file in the root of the `ai-tweet-generator` directory and add your OpenRouter API key:
+    ```
+    OPENROUTER_API_KEY=your_openrouter_api_key
+    ```
+    You can get an API key from the [OpenRouter website](https://openrouter.ai/).
+
+## Usage
+
+To start the development server, run:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## API
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+The application has an API endpoint for generating tweets:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+- `POST /api/tweet-generator`
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+You can send a POST request with a JSON body to this endpoint to generate tweets programmatically.
 
-## Learn More
+**Example Request Body:**
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```json
+{
+  "topic": "AI",
+  "mood": "excited",
+  "hashtags": ["#AI", "#FutureTech"],
+  "count": 2,
+  "tone": "professional",
+  "language": "en",
+  "length": "medium",
+  "emojis": ["🚀", "💡"]
+}
+```
 
 ## Deploy on Vercel
 
